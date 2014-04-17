@@ -1,14 +1,16 @@
-import math
+def palindrome(number):
+	tmpArray = list(str(number))
+	for ci in range(0,len(tmpArray) / 2):
+		if tmpArray[ci] != tmpArray[-1 - ci]: return False
+	return True
 
-primeNumbers = [2,3,5,7,11,13,17]
+results = []
+for x in range(100, 1000):
+	for y in range(x, 1000):
+		results.append(x * y)
 
-def nextPrime(primeNumbers): # return next prime number of primeNumbers
-	ci = primeNumbers[-1]
-	while True:
-		ci += 1;
-		for prime in primeNumbers:
-			if 0 == ci % prime: break
-			if prime > math.sqrt(ci): return ci
-
-while len(primeNumbers) < 10001: primeNumbers.append(nextPrime(primeNumbers))
-print primeNumbers[-1]
+results.sort(reverse=True)
+for number in results:
+	if palindrome(number):
+		print number
+		break
