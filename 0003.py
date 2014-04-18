@@ -5,7 +5,7 @@ primeNumbers = [2,3,5,7,11,13,17]
 def nextPrime(primeNumbers): # return next prime number of primeNumbers
 	ci = primeNumbers[-1]
 	while True:
-		ci += 1;
+		ci += 2;
 		for prime in primeNumbers:
 			if 0 == ci % prime: break
 			if prime > math.sqrt(ci): return ci
