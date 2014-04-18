@@ -10,5 +10,11 @@ def nextPrime(primeNumbers): # return next prime number of primeNumbers
 			if 0 == ci % prime: break
 			if prime > math.sqrt(ci): return ci
 
-while len(primeNumbers) < 10001: primeNumbers.append(nextPrime(primeNumbers))
-print primeNumbers[-1]
+while primeNumbers[-1] < 2000000:
+	primeNumbers.append(nextPrime(primeNumbers))
+
+total = 0
+for number in primeNumbers[0:-1]:
+	total += number
+
+print total
